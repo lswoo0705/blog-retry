@@ -1,11 +1,13 @@
 package com.sparta.blogretry.entity;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
+@Getter
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

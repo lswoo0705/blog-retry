@@ -10,5 +10,4 @@ public class CreatePostRequestDto {
     private String username;
     private String content;
     private String password;
-
 }
