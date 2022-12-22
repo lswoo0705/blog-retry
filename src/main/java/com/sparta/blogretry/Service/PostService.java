@@ -63,7 +63,7 @@ public class PostService {
         return post;
     }
 
-    public void deletePost(Long postId, String password) {
+    public String deletePost(Long postId, String password) {
         Post post = postRepository.findById(postId).orElseThrow(
                 () -> new IllegalArgumentException("조회하신 아이디의 게시글이 없습니다.")
         );
@@ -72,5 +72,6 @@ public class PostService {
         } else {
             throw new IllegalArgumentException("패스워드가 틀렸습니다.");
         }
+        return "삭제 완료";
     }
 }

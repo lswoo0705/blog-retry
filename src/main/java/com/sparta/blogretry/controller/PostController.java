@@ -45,7 +45,7 @@ public class PostController {
     }
 
     @DeleteMapping("/posts/{postId}") // @DeleteMapping은 @RequestBody를 사용할 수 없다 -> @RequestParam
-    public void deletePost(@PathVariable Long postId, @RequestParam String password) {
-        postService.deletePost(postId, password);
+    public String deletePost(@PathVariable Long postId, @RequestParam String password) {
+        return postService.deletePost(postId, password);
     }
 }
