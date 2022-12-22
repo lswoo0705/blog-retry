@@ -4,11 +4,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
 @Getter
-public class Post {
+public class Post extends TimeStamped{ // TimeStamped를 상속받으면 내가 컨트롤 하지 않아도 적용 된다.
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -7,6 +7,8 @@ import com.sparta.blogretry.dto.UpdatePostRequestDto;
 import com.sparta.blogretry.entity.Post;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api")
@@ -24,10 +26,11 @@ public class PostController {
         postService.createPost(createPostRequestDto);
     }
 
-//    @GetMapping("/posts")
-//    public void getPost() {
-//        postService.getPost();
-//    }
+    // 전체 게시글 조회
+    @GetMapping("/posts")
+    public List<GetPostResponseDto> getPostList() {
+        return postService.getPostList();
+    }
 
     // 선택 게시글 조회
     @GetMapping("/posts/{postId}")

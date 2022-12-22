@@ -9,6 +9,7 @@ import com.sparta.blogretry.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service // DB 또는 Controller를 통해 전달받은 데이터를 가지고 DB나 entity + entity에 있는 행위(update)들 일을 시킴
@@ -26,10 +27,15 @@ public class PostService {
         postRepository.save(post);
     }
 
-//    // 게시글 조회.
-//    public List<Post> getPost() {
-//        return postRepository.findAll();
-//    }
+    // 게시글 전체 조회
+    public List<GetPostResponseDto> getPostList() {
+        List<Post> postList = postRepository.findAllByOrderByDateCreatedDesc();
+        List<GetPostResponseDto> getPostResponseDtoList = new ArrayList<>();
+        for (Post post : postList) {
+            getPostResponseDtoList.add(new GetPostResponseDto(post));
+        }
+        return getPostResponseDtoList;
+    }
 
     // 선택 게시글 조회
     public GetPostResponseDto getSelectedPost(Long postId) {
