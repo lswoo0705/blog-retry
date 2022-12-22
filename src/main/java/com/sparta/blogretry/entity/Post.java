@@ -34,9 +34,18 @@ public class Post {
     }
 
     // 업데이트 기능
-    public void updatePost(String posttitle, String username, String content, String password) {
+    public void updatePost(String posttitle, String username, String content) {
         this.posttitle = posttitle;
         this.username = username;
         this.content = content;
+    }
+
+    // 비밀번호 일치여부 확인
+    public boolean isValidPassword(String inputPassword) {
+        if (inputPassword.equals(this.password)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

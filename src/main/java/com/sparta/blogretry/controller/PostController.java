@@ -3,6 +3,7 @@ package com.sparta.blogretry.controller;
 import com.sparta.blogretry.Service.PostService;
 import com.sparta.blogretry.dto.CreatePostRequestDto;
 import com.sparta.blogretry.dto.GetPostResponseDto;
+import com.sparta.blogretry.dto.UpdatePostRequestDto;
 import com.sparta.blogretry.entity.Post;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,8 +29,15 @@ public class PostController {
 //        postService.getPost();
 //    }
 
+    // 선택 게시글 조회
     @GetMapping("/posts/{postId}")
     public GetPostResponseDto getSelectedPost(@PathVariable Long postId) {
         return postService.getSelectedPost(postId);
+    }
+
+    // 게시글 수정하기
+    @PutMapping("/posts/{postId}")
+    public void updatePost(@PathVariable Long postId, @RequestBody UpdatePostRequestDto updatePostRequestDto) {
+        postService.updatePost(postId, new UpdatePostRequestDto());
     }
 }
