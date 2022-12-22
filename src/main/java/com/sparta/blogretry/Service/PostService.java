@@ -48,7 +48,7 @@ public class PostService {
 
     // 게시글 수정
     @Transactional // Post를 노려보고있다가 덩어리가 끝날 때 변화가 있으면 업데이트 쿼리를 알아서 날려줌
-    public void updatePost(Long postId, UpdatePostRequestDto updatePostRequestDto) {
+    public Post updatePost(Long postId, UpdatePostRequestDto updatePostRequestDto) {
         Post post = postRepository.findById(postId).orElseThrow(
                 () -> new IllegalArgumentException("조회하신 아이디의 게시글이 없습니다.")
         );
@@ -60,6 +60,7 @@ public class PostService {
         } else {
             throw new IllegalArgumentException("패스워드가 틀렸습니다.");
         }
+        return post;
     }
 
     public void deletePost(Long postId, String password) {

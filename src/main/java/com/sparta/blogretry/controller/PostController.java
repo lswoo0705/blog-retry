@@ -40,8 +40,8 @@ public class PostController {
 
     // 게시글 수정하기
     @PutMapping("/posts/{postId}")
-    public void updatePost(@PathVariable Long postId, @RequestBody UpdatePostRequestDto updatePostRequestDto) {
-        postService.updatePost(postId, updatePostRequestDto);
+    public Post updatePost(@PathVariable Long postId, @RequestBody UpdatePostRequestDto updatePostRequestDto) {
+        return postService.updatePost(postId, updatePostRequestDto);
     }
 
     @DeleteMapping("/posts/{postId}") // @DeleteMapping은 @RequestBody를 사용할 수 없다 -> @RequestParam
