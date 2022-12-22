@@ -46,7 +46,9 @@ public class PostService {
         if (savedPost.isValidPassword(updatePostRequestDto.getPassword())) {
             savedPost.updatePost(updatePostRequestDto.getPosttitle(), updatePostRequestDto.getUsername(), updatePostRequestDto.getContent());
             postRepository.save(savedPost);
-        // if (updatePostRequestDto.getPassword().equals(savedPost.getPassword())) 이렇게 하면 일을 시키는 애가 일을 하는꼬라지
+            // if (updatePostRequestDto.getPassword().equals(savedPost.getPassword())) 이렇게 하면 일을 시키는 애가 일을 하는꼬라지
+        } else {
+            throw new IllegalArgumentException("패스워드가 틀렸습니다.");
         }
     }
 }
