@@ -22,9 +22,10 @@ public class PostService {
     }
 
     // 게시글 작성. dto에서 파라미터를 받고 객체 생성해서 레퍼지토리에 저장해라
-    public void createPost(CreatePostRequestDto createPostRequestDto) {
+    public Post createPost(CreatePostRequestDto createPostRequestDto) {
         Post post = new Post(createPostRequestDto.getPosttitle(), createPostRequestDto.getUsername(), createPostRequestDto.getContent(), createPostRequestDto.getPassword());
         postRepository.save(post);
+        return post;
     }
 
     // 게시글 전체 조회

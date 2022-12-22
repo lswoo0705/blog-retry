@@ -22,8 +22,8 @@ public class PostController {
 
     // 게시글 작성. dto를 통해 받은 데이터들를
     @PostMapping("/posts")
-    public void createPost(@RequestBody CreatePostRequestDto createPostRequestDto) { // Json이라는 형태로 body형식으로 들어올거다.
-        postService.createPost(createPostRequestDto);
+    public Post createPost(@RequestBody CreatePostRequestDto createPostRequestDto) { // Json이라는 형태로 body형식으로 들어올거다.
+        return postService.createPost(createPostRequestDto);
     }
 
     // 전체 게시글 조회
