@@ -1,7 +1,6 @@
 package com.sparta.blogretry.Service;
 
 import com.sparta.blogretry.dto.CreatePostRequestDto;
-import com.sparta.blogretry.dto.DeletePostRequestDto;
 import com.sparta.blogretry.dto.GetPostResponseDto;
 import com.sparta.blogretry.dto.UpdatePostRequestDto;
 import com.sparta.blogretry.entity.Post;
